@@ -8,6 +8,8 @@ import React from 'react'
 import { Button } from '../ui/button'
 
 const Sidebar = () => {
+  console.log(process.env.MONGODB_URL);
+  
   const pathname = usePathname()
   return (
     <aside className='sidebar'>
@@ -61,7 +63,7 @@ const Sidebar = () => {
           </SignedIn>
           <SignedOut>
             <Button asChild className='button bg-purple-gradient bg-cover'>
-              <Link href='/sign-in'></Link>
+              <Link href='/sign-in'>Sign In</Link>
             </Button>
           </SignedOut>
         </nav>
