@@ -68,7 +68,8 @@ export async function POST(req: Request) {
       lastName: last_name!,
       photo: image_url,
     };
-
+    console.log(user);
+    
     const newUser = await createUser(user);
 
     // Set public metadata
@@ -94,6 +95,7 @@ export async function POST(req: Request) {
       photo: image_url,
     };
 
+    console.log(user);
     const updatedUser = await updateUser(id, user);
 
     return NextResponse.json({ message: "OK", user: updatedUser });
