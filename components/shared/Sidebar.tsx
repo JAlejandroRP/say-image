@@ -8,8 +8,6 @@ import React from 'react'
 import { Button } from '../ui/button'
 
 const Sidebar = () => {
-  console.log(process.env.MONGODB_URL);
-  
   const pathname = usePathname()
   return (
     <aside className='sidebar'>

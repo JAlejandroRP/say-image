@@ -15,6 +15,8 @@ export async function POST(req: Request) {
       "Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local"
     );
   }
+  console.log('route ******');
+  
 
   // Get the headers
   const headerPayload = headers();
@@ -55,6 +57,7 @@ export async function POST(req: Request) {
   // Get the ID and type
   const { id } = evt.data;
   const eventType = evt.type;
+  let logs = []
 
   // CREATE
   if (eventType === "user.created") {
@@ -68,10 +71,11 @@ export async function POST(req: Request) {
       lastName: last_name!,
       photo: image_url,
     };
-    console.log(user);
+    logs.push(user)
     
     const newUser = await createUser(user);
-
+    logs.push(newUser)
+    
     // Set public metadata
     if (newUser) {
       await clerkClient.users.updateUserMetadata(id, {
@@ -81,7 +85,7 @@ export async function POST(req: Request) {
       });
     }
 
-    return NextResponse.json({ message: "OK", user: newUser });
+    return NextResponse.json({ message: "OK", user: newUser, logs });
   }
 
   // UPDATE
@@ -95,10 +99,13 @@ export async function POST(req: Request) {
       photo: image_url,
     };
 
+    logs.push(user)
+
     console.log(user);
     const updatedUser = await updateUser(id, user);
+    logs.push(updateUser)
 
-    return NextResponse.json({ message: "OK", user: updatedUser });
+    return NextResponse.json({ message: "OK", user: updatedUser, logs });
   }
 
   // DELETE
