@@ -177,8 +177,8 @@ export const aspectRatioOptions = {
   "9:16": {
     aspectRatio: "9:16",
     label: "Phone Portrait (9:16)",
-    width: 1000,
-    height: 1778,
+    width: 1080,
+    height: 1920,
   },
 };
 
