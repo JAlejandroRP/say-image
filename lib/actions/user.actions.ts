@@ -93,6 +93,8 @@ export async function deleteUser(clerkId: string) {
 // USE CREDITS
 export async function updateCredits(userId: string, creditFee: number) {
   try {
+    console.log('updating', userId, creditFee);
+    
     await connectToDatabase();
 
     const updatedUserCredits = await User.findOneAndUpdate(

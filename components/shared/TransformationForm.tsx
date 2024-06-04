@@ -24,7 +24,6 @@ import { addImage, updateImage } from '@/lib/actions/image.actions'
 import { useRouter } from 'next/navigation'
 import { getCldImageUrl } from 'next-cloudinary'
 import { InsufficientCreditsModal } from './InsufficientCreditsModal'
-// import { updateCredits } from '@/lib/actions/user.actions'
 
 export const formSchema = z.object({
   title: z.string(),

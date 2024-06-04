@@ -8,6 +8,8 @@ import { updateCredits } from "./user.actions";
 
 
 export async function checkoutCredits(transaction: CheckoutTransactionParams) {
+  console.log('trans', transaction);
+  
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
   const amount = Number(transaction.amount) * 100;
@@ -40,6 +42,8 @@ export async function checkoutCredits(transaction: CheckoutTransactionParams) {
 
 export async function createTransaction(transaction: CreateTransactionParams){
   try{
+    console.log('trans ac', transaction);
+    
     await connectToDatabase();
 
     const newTransaction = await Transaction.create({
