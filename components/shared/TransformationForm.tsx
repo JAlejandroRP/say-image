@@ -160,9 +160,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
     return onChangeField(value)
   }
 
-  // TODO: credit fee to another thing 
   const onTransformHandler = async () => {
-
     setIsTransforming(true)
 
     setTransformationConfig(
@@ -172,18 +170,18 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
     )
     console.log('trans config', transformationConfig);
 
-    // setNewTransformation(null)
+    setNewTransformation(null)
 
     startTransition(async () => {
       await updateCredits(userId, creditFee)
     })
   }
 
-  useEffect(() => {
-    if (image && (type === 'restore' || type === 'removeBackground')) {
-      setNewTransformation(transformationType.config)
-    }
-  }, [image, transformationType.config, type])
+  // useEffect(() => {
+    // if (image && (type === 'restore' || type === 'removeBackground')) {
+      // setNewTransformation(transformationType.config)
+    // }
+  // }, [image, transformationType.config, type])
 
   return (
     <Form {...form}>
@@ -224,7 +222,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
           />
         )}
 
-        {(type === 'remove' || type === 'recolor') && (
+        {/* {(type === 'remove' || type === 'recolor') && (
           <div className='prompt-field'>
             <CustomField
               control={form.control}
@@ -243,9 +241,9 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
                   )}
                 />
               )}
-            />
+            /> */}
 
-            {type === 'recolor' && (
+            {/* {type === 'recolor' && (
               <CustomField
                 control={form.control}
                 name='color'
@@ -266,7 +264,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
               />
             )}
           </div>
-        )}
+        )} */}
 
         <div className="media-uploader-field">
           <CustomField
