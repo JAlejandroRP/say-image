@@ -40,6 +40,9 @@ const SupportForm = ({ userId }: { userId: string }) => {
 
       setIsSubmitting(true)
 
+      if(!values.message)
+        throw new Error('Please add a message')
+
       const messageSend = await sendMessage({
         message: values.message,
         userId: userId
