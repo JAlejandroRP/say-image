@@ -39,6 +39,11 @@ export const navLinks = [
     route: "/credits",
     icon: "/assets/icons/bag.svg",
   },
+  {
+    label: "Customer Support",
+    route: "/support",
+    icon: "/assets/icons/profile.svg",
+  },
 ];
 
 export const plans = [

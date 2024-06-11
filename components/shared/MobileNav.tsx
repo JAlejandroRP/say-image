@@ -1,6 +1,7 @@
 "use client"
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -53,15 +54,18 @@ const MobileNav = () => {
                     const isActive = link.route === pathname
                     return (
                       <li key={link.route} className={`${isActive && 'gradient-text'} p-18 flex whitespace-nowrap text-dark-700`}>
-                        <Link className='sidebar-link cursor-pointer' href={link.route}>
-                          <Image
-                            src={link.icon}
-                            alt='logo'
-                            width={24}
-                            height={24}
-                          />
-                          {link.label}
-                        </Link>
+                        <SheetClose asChild>
+                          <Link className='sidebar-link cursor-pointer' href={link.route}>
+                            <Image
+                              role="button"
+                              src={link.icon}
+                              alt='logo'
+                              width={24}
+                              height={24}
+                            />
+                            {link.label}
+                          </Link>
+                        </SheetClose>
                       </li>
                     )
                   })}

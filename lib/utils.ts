@@ -3,12 +3,23 @@
 import { type ClassValue, clsx } from "clsx";
 import qs from "qs";
 import { twMerge } from "tailwind-merge";
-
+// import { Resend } from 'resend';
 import { aspectRatioOptions } from "@/constants";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+// export function sendEmail() {
+//   const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+
+//   resend.emails.send({
+//     from: 'devalerp@.dev',
+//     to: 'dev.alerp@gmail.com',
+//     subject: 'Hello World',
+//     html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
+//   });
+// }
 
 // ERROR HANDLER
 export const handleError = (error: unknown) => {
@@ -132,7 +143,7 @@ export const download = (url: string, filename: string) => {
 
 // DEEP MERGE OBJECTS
 export const deepMergeObjects = (obj1: any, obj2: any) => {
-  if(obj2 === null || obj2 === undefined) {
+  if (obj2 === null || obj2 === undefined) {
     return obj1;
   }
 
