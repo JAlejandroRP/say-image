@@ -14,6 +14,8 @@ const AddTransformationTypePage = async ({ params: { type } }: SearchParamProps)
 
   const user = await getUserByClerkId(userId)
 
+  if(!user) redirect('/sign-in');
+
   return (
     <>
       <Header
