@@ -124,7 +124,7 @@ export async function getAllImages({ limit = 9, page = 1, searchQuery = '' }: {
     const skipAmount = (Number(page) - 1) * limit;
 
     const images = await populateUser(Image.find(query))
-      .sort({ updateAt: -1 })
+      .sort({ createdAt: -1 })
       .skip(skipAmount)
       .limit(limit);
 
